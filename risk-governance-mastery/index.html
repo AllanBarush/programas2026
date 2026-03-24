@@ -580,12 +580,23 @@ timestamp:new Date().toISOString()
 };
 
 try{
-await fetch('https://hook.eu1.make.com/6c7yq50qkr6ena51ccqxsxgrydsfwx3k',{
-method:'POST',
-headers:{'Content-Type':'application/json'},
-body:JSON.stringify(payload),
-mode:'no-cors'
-});
+const hubspotData={fields:[
+{objectTypeId:'0-1',name:'email',value:email},
+{objectTypeId:'0-1',name:'firstname',value:name},
+{objectTypeId:'0-1',name:'lastname',value:surname_paterno+' '+surname_materno},
+{objectTypeId:'0-1',name:'company',value:company},
+{objectTypeId:'0-1',name:'phone',value:document.getElementById('phone')?document.getElementById('phone').value:''}
+],context:{pageUri:window.location.href,pageName:payload.program}};
+await Promise.all([
+fetch('https://hook.eu1.make.com/6c7yq50qkr6ena51ccqxsxgrydsfwx3k',{
+method:'POST',headers:{'Content-Type':'application/json'},
+body:JSON.stringify(payload),mode:'no-cors'
+}),
+fetch('https://api.hsforms.com/submissions/v3/integration/submit/51206063/c2bb4718-0dc7-4695-97b5-00bd0bef1fd5',{
+method:'POST',headers:{'Content-Type':'application/json'},
+body:JSON.stringify(hubspotData)
+}).catch(()=>{})
+]);
 form.style.display='none';
 document.getElementById('formSuccess').style.display='block';
 }catch(err){
