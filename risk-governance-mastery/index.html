@@ -595,6 +595,10 @@ body:JSON.stringify(payload),mode:'no-cors'
 fetch('https://api.hsforms.com/submissions/v3/integration/submit/51206063/c2bb4718-0dc7-4695-97b5-00bd0bef1fd5',{
 method:'POST',headers:{'Content-Type':'application/json'},
 body:JSON.stringify(hubspotData)
+}).catch(()=>{}),
+fetch('https://discord.com/api/webhooks/1485946034600280074/vQtX24DqXp5_CwlaufcAPO0ftngs66lV6vKoYxAKN4ptK7JuITa-aJvroZVUYwrUJ1AW',{
+method:'POST',headers:{'Content-Type':'application/json'},
+body:JSON.stringify({content:'**NUEVO LEAD**\n'+name+' '+surname_paterno+'\n'+email+'\n'+company+'\n'+payload.program+'\nCONTACTAR EN 2H',username:'SKYNET Lead Engine'})
 }).catch(()=>{})
 ]);
 form.style.display='none';
