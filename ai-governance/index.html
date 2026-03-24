@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Operating System Bootcamp — RiskMathics</title>
+<meta name="description" content="Strategic Enterprise Reinvention for the AI Era. 5 days, 20 hours with Alejandro Reynoso, Ph.D. MIT, Cambridge Judge Business School. April 20-24, 2026.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Lora:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+--navy:#0a1628;--navy-light:#0f1f3a;--navy-mid:#162a4a;
+--coral:#e8734a;--coral-light:#f0956f;--coral-dark:#d4603a;
+--gold:#c9a84c;--gold-light:#dfc06e;
+--cyan:#4ae8c9;--cyan-dark:#38c4a8;
+--ice:#e0e7ef;--white:#ffffff;--white-90:rgba(255,255,255,.9);
+--white-70:rgba(255,255,255,.7);--white-50:rgba(255,255,255,.5);
+--white-20:rgba(255,255,255,.2);--white-10:rgba(255,255,255,.1);
+--font-head:'Poppins',sans-serif;--font-serif:'Lora',serif;--font-body:'Inter',sans-serif;
+--max-w:1140px;--section-py:100px;
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--font-body);background:var(--navy);color:var(--ice);line-height:1.7;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+
+.nav{position:fixed;top:0;left:0;width:100%;z-index:100;padding:18px 40px;display:flex;align-items:center;justify-content:space-between;backdrop-filter:blur(18px);background:rgba(10,22,40,.85);border-bottom:1px solid var(--white-10);transition:all .3s}
+.nav-brand{font-family:var(--font-head);font-weight:700;font-size:.95rem;letter-spacing:2px;text-transform:uppercase;color:var(--white-90)}
+.nav-brand span{color:var(--coral)}
+.nav-links{display:flex;gap:28px;list-style:none}
+.nav-links a{font-size:.82rem;font-weight:500;letter-spacing:.5px;text-transform:uppercase;color:var(--white-70);transition:color .3s}
+.nav-links a:hover{color:var(--coral)}
+.nav-cta{background:var(--coral);color:#fff;padding:10px 24px;border-radius:6px;font-size:.8rem;font-weight:600;letter-spacing:.5px;text-transform:uppercase;transition:all .3s}
+.nav-cta:hover{background:var(--coral-dark);transform:translateY(-1px)}
+
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:140px 40px 100px;position:relative;background:linear-gradient(170deg,var(--navy) 0%,#0d1e36 40%,#0e1a30 100%)}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 30%,rgba(74,232,201,.06) 0%,transparent 50%),radial-gradient(ellipse at 70% 70%,rgba(232,115,74,.06) 0%,transparent 50%)}
+.hero-badge{display:inline-block;font-family:var(--font-head);font-size:.72rem;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--cyan);border:1px solid rgba(74,232,201,.3);padding:8px 20px;border-radius:30px;margin-bottom:28px;position:relative;z-index:1}
+.hero h1{font-family:var(--font-head);font-size:clamp(2.2rem,5vw,3.8rem);font-weight:800;line-height:1.1;color:var(--white);margin-bottom:16px;position:relative;z-index:1}
+.hero h1 em{font-style:normal;color:var(--coral)}
+.hero h1 .ai{color:var(--cyan)}
+.hero-sub{font-family:var(--font-serif);font-size:clamp(1rem,2vw,1.25rem);color:var(--white-70);max-width:700px;margin:0 auto 12px;position:relative;z-index:1;font-style:italic}
+.hero-venue{font-family:var(--font-head);font-size:.82rem;color:var(--gold);letter-spacing:1px;margin-bottom:40px;position:relative;z-index:1}
+.hero-btn{display:inline-block;background:var(--coral);color:#fff;padding:16px 40px;border-radius:8px;font-family:var(--font-head);font-size:.9rem;font-weight:600;letter-spacing:1px;text-transform:uppercase;transition:all .3s;position:relative;z-index:1}
+.hero-btn:hover{background:var(--coral-dark);transform:translateY(-2px);box-shadow:0 8px 30px rgba(232,115,74,.3)}
+
+.section{padding:var(--section-py) 40px}
+.container{max-width:var(--max-w);margin:0 auto}
+.section-label{font-family:var(--font-head);font-size:.72rem;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--coral);margin-bottom:12px}
+.section-title{font-family:var(--font-head);font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:700;color:var(--white);line-height:1.2;margin-bottom:20px}
+.section-desc{font-size:1.05rem;color:var(--white-70);max-width:720px;line-height:1.8}
+.divider{width:60px;height:3px;background:var(--coral);border-radius:2px;margin:20px 0 30px}
+
+.about{background:linear-gradient(180deg,var(--navy) 0%,var(--navy-light) 100%)}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;margin-top:50px}
+.about-text p{color:var(--white-70);margin-bottom:18px;font-size:1.02rem;line-height:1.85}
+.about-text p strong{color:var(--white-90)}
+.stat-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+.stat-card{background:var(--navy-mid);border:1px solid var(--white-10);border-radius:12px;padding:28px 24px;text-align:center;transition:all .3s}
+.stat-card:hover{border-color:var(--coral);transform:translateY(-3px)}
+.stat-num{font-family:var(--font-head);font-size:2.2rem;font-weight:800;color:var(--coral);line-height:1}
+.stat-label{font-size:.82rem;color:var(--white-50);margin-top:8px;text-transform:uppercase;letter-spacing:1px}
+
+.why{background:var(--navy-light)}
+.why-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:30px;margin-top:50px}
+.why-card{background:var(--navy);border:1px solid var(--white-10);border-radius:14px;padding:36px 30px;transition:all .3s}
+.why-card:hover{border-color:var(--coral);transform:translateY(-4px)}
+.why-icon{width:50px;height:50px;background:rgba(74,232,201,.08);border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:20px;font-size:1.4rem}
+.why-card h3{font-family:var(--font-head);font-size:1.1rem;font-weight:600;color:var(--white);margin-bottom:12px}
+.why-card p{font-size:.92rem;color:var(--white-70);line-height:1.7}
+
+.modules{background:var(--navy)}
+.mod-grid{display:flex;flex-direction:column;gap:20px;margin-top:50px}
+.mod-card{display:grid;grid-template-columns:80px 1fr;gap:24px;background:var(--navy-light);border:1px solid var(--white-10);border-radius:14px;padding:32px 30px;transition:all .3s}
+.mod-card:hover{border-color:var(--coral);transform:translateX(6px)}
+.mod-num{font-family:var(--font-head);font-size:2rem;font-weight:800;color:var(--coral);opacity:.7;line-height:1}
+.mod-hours{font-size:.72rem;color:var(--white-50);text-transform:uppercase;letter-spacing:1px;margin-top:4px}
+.mod-day{font-size:.65rem;color:var(--cyan);text-transform:uppercase;letter-spacing:1px;margin-top:2px}
+.mod-content h3{font-family:var(--font-head);font-size:1.05rem;font-weight:600;color:var(--white);margin-bottom:8px}
+.mod-content p{font-size:.92rem;color:var(--white-70);line-height:1.7}
+
+.who{background:var(--navy-light)}
+.who-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:50px}
+.who-card{background:var(--navy);border:1px solid var(--white-10);border-radius:14px;padding:30px 24px;text-align:center;transition:all .3s}
+.who-card:hover{border-color:var(--gold);transform:translateY(-3px)}
+.who-icon{font-size:1.8rem;margin-bottom:14px}
+.who-card h4{font-family:var(--font-head);font-size:.95rem;font-weight:600;color:var(--white);margin-bottom:8px}
+.who-card p{font-size:.82rem;color:var(--white-50)}
+
+.faculty{background:var(--navy)}
+.faculty-card{display:grid;grid-template-columns:300px 1fr;gap:50px;margin-top:50px;background:var(--navy-light);border:1px solid var(--white-10);border-radius:18px;padding:40px;align-items:center}
+.faculty-img{width:100%;aspect-ratio:1;background:linear-gradient(135deg,#0e2040,#1a4060);border-radius:14px;display:flex;align-items:center;justify-content:center;font-family:var(--font-head);font-size:4rem;font-weight:800;color:rgba(255,255,255,.15)}
+.faculty-info h3{font-family:var(--font-head);font-size:1.6rem;font-weight:700;color:var(--white);margin-bottom:4px}
+.faculty-info .faculty-role{font-family:var(--font-serif);font-style:italic;color:var(--coral);font-size:1rem;margin-bottom:20px}
+.faculty-info p{color:var(--white-70);font-size:.95rem;line-height:1.8;margin-bottom:14px}
+.faculty-tags{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
+.faculty-tag{background:rgba(74,232,201,.08);color:var(--cyan);font-size:.72rem;font-weight:600;padding:6px 14px;border-radius:20px;letter-spacing:.5px;text-transform:uppercase}
+
+/* VENUE */
+.venue{background:var(--navy-light)}
+.venue-card{margin-top:50px;background:var(--navy);border:1px solid var(--white-10);border-radius:18px;padding:44px;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+.venue-info h3{font-family:var(--font-head);font-size:1.4rem;font-weight:700;color:var(--white);margin-bottom:16px}
+.venue-info p{color:var(--white-70);font-size:.95rem;line-height:1.8;margin-bottom:12px}
+.venue-detail{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.venue-detail span:first-child{font-size:1.1rem}
+.venue-detail span:last-child{font-size:.9rem;color:var(--white-70)}
+.venue-map{width:100%;aspect-ratio:16/10;background:var(--navy-mid);border-radius:12px;display:flex;align-items:center;justify-content:center;font-family:var(--font-head);font-size:1rem;color:var(--white-50);border:1px solid var(--white-10)}
+
+.pricing{background:var(--navy)}
+.pricing-grid{display:grid;grid-template-columns:1fr 1fr;gap:30px;margin-top:50px;max-width:900px;margin-left:auto;margin-right:auto}
+.price-card{background:var(--navy-light);border:1px solid var(--white-10);border-radius:18px;padding:44px 36px;text-align:center;transition:all .3s;position:relative;overflow:hidden}
+.price-card.featured{border-color:var(--coral)}
+.price-card.featured::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--coral),var(--cyan))}
+.price-card:hover{transform:translateY(-4px);box-shadow:0 20px 60px rgba(0,0,0,.3)}
+.price-label{font-family:var(--font-head);font-size:.72rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--coral);margin-bottom:6px}
+.price-type{font-family:var(--font-head);font-size:1.2rem;font-weight:700;color:var(--white);margin-bottom:24px}
+.price-amount{font-family:var(--font-head);font-size:2.6rem;font-weight:800;color:var(--white);line-height:1}
+.price-currency{font-size:1rem;font-weight:400;color:var(--white-50)}
+.price-note{font-size:.82rem;color:var(--white-50);margin-top:6px;margin-bottom:28px}
+.price-features{list-style:none;text-align:left;margin-bottom:32px}
+.price-features li{font-size:.88rem;color:var(--white-70);padding:8px 0;border-bottom:1px solid var(--white-10);display:flex;align-items:center;gap:10px}
+.price-features li::before{content:'✓';color:var(--coral);font-weight:700;font-size:.8rem}
+.price-btn{display:inline-block;width:100%;padding:14px 24px;border-radius:8px;font-family:var(--font-head);font-size:.85rem;font-weight:600;letter-spacing:.5px;text-transform:uppercase;text-align:center;transition:all .3s;cursor:pointer}
+.price-btn.primary{background:var(--coral);color:#fff}
+.price-btn.primary:hover{background:var(--coral-dark);transform:translateY(-1px)}
+.price-btn.secondary{background:transparent;color:var(--coral);border:1.5px solid var(--coral)}
+.price-btn.secondary:hover{background:rgba(232,115,74,.1)}
+
+.register{background:var(--navy-light);position:relative}
+.register::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(74,232,201,.04) 0%,transparent 60%)}
+.register-box{max-width:640px;margin:0 auto;background:var(--navy);border:1px solid var(--white-10);border-radius:18px;padding:48px 44px;position:relative;z-index:1}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px}
+.form-group{margin-bottom:16px}
+.form-group label{display:block;font-size:.78rem;font-weight:500;color:var(--white-70);margin-bottom:6px;letter-spacing:.5px;text-transform:uppercase}
+.form-group input,.form-group select{width:100%;padding:12px 16px;background:var(--navy-light);border:1px solid var(--white-20);border-radius:8px;color:var(--white);font-family:var(--font-body);font-size:.92rem;transition:all .3s;outline:none}
+.form-group input:focus,.form-group select:focus{border-color:var(--coral);box-shadow:0 0 0 3px rgba(232,115,74,.15)}
+.form-group select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' fill='%23e0e7ef'%3E%3Cpath d='M6 8L0 0h12z'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 16px center}
+.form-group select option{background:var(--navy-light);color:var(--ice)}
+.form-error{color:#ff6b6b;font-size:.75rem;margin-top:4px;display:none}
+.form-submit{width:100%;padding:16px;background:var(--coral);color:#fff;border:none;border-radius:8px;font-family:var(--font-head);font-size:.95rem;font-weight:600;letter-spacing:1px;text-transform:uppercase;cursor:pointer;transition:all .3s;margin-top:8px}
+.form-submit:hover{background:var(--coral-dark);transform:translateY(-1px);box-shadow:0 8px 30px rgba(232,115,74,.3)}
+.form-submit:disabled{opacity:.5;cursor:not-allowed;transform:none}
+.form-success{display:none;text-align:center;padding:40px 20px}
+.form-success h3{font-family:var(--font-head);font-size:1.4rem;color:var(--white);margin-bottom:10px}
+.form-success p{color:var(--white-70);font-size:.95rem}
+
+.footer{background:var(--navy);border-top:1px solid var(--white-10);padding:40px;text-align:center}
+.footer p{font-size:.82rem;color:var(--white-50)}
+.footer a{color:var(--coral)}
+
+@media(max-width:900px){
+.nav-links{display:none}
+.about-grid{grid-template-columns:1fr}
+.why-cards{grid-template-columns:1fr}
+.who-grid{grid-template-columns:repeat(2,1fr)}
+.faculty-card{grid-template-columns:1fr}
+.venue-card{grid-template-columns:1fr}
+.pricing-grid{grid-template-columns:1fr;max-width:460px}
+.form-row{grid-template-columns:1fr}
+.mod-card{grid-template-columns:60px 1fr}
+}
+@media(max-width:600px){
+.section{padding:60px 20px}
+.hero{padding:120px 20px 80px}
+.who-grid{grid-template-columns:1fr}
+.register-box{padding:32px 24px}
+.nav{padding:14px 20px}
+.venue-card{padding:28px 24px}
+}
+
+.fade-up{opacity:0;transform:translateY(30px);transition:all .7s cubic-bezier(.16,1,.3,1)}
+.fade-up.visible{opacity:1;transform:translateY(0)}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+<div class="nav-brand">Risk<span>Mathics</span></div>
+<ul class="nav-links">
+<li><a href="#about">Program</a></li>
+<li><a href="#modules">Days</a></li>
+<li><a href="#faculty">Faculty</a></li>
+<li><a href="#pricing">Pricing</a></li>
+</ul>
+<a href="#register" class="nav-cta">Register</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+<div>
+<div class="hero-badge">Immersive Bootcamp · April 20–24, 2026</div>
+<h1><span class="ai">AI</span> OPERATING SYSTEM<br><em>BOOTCAMP</em></h1>
+<p class="hero-sub">Strategic Enterprise Reinvention for the AI Era — Governance, Architecture & Execution</p>
+<p class="hero-venue">5 Days · 20 Hours · Club de Industriales, Polanco CDMX</p>
+<a href="#about" class="hero-btn">Discover</a>
+</div>
+</section>
+
+<!-- ABOUT -->
+<section class="section about" id="about">
+<div class="container">
+<div class="section-label">The Program</div>
+<div class="section-title">Many companies are already outside the future.<br>They just don't know it yet.</div>
+<div class="divider"></div>
+<div class="about-grid fade-up">
+<div class="about-text">
+<p>In 2026, generative AI is no longer just a tool — <strong>it is the operating system</strong>. Organizations that fail to build an enterprise-grade AI architecture with proper governance, traceability, and strategic alignment will not just fall behind — they will become structurally irrelevant.</p>
+<p>The <strong>AI Operating System Bootcamp</strong> is a 5-day immersive program designed for C-suite executives and senior leaders who need to move beyond AI experimentation and build the <strong>institutional operating system</strong> that integrates AI into governance, strategy, operations, and decision-making. This is not about prompts or tools — it is about <strong>enterprise reinvention</strong>.</p>
+<p>Led by <strong>Alejandro Reynoso</strong> — Ph.D. from MIT, lecturer at Cambridge Judge Business School, and co-founder of DEFI Capital — this bootcamp delivers the frameworks, governance models, and implementation playbooks that the world's most advanced organizations are deploying right now. Participants leave with a <strong>complete AI Operating System blueprint</strong> ready for board-level presentation.</p>
+</div>
+<div class="stat-grid">
+<div class="stat-card">
+<div class="stat-num">20h</div>
+<div class="stat-label">Immersive Program</div>
+</div>
+<div class="stat-card">
+<div class="stat-num">5</div>
+<div class="stat-label">Days In-Person</div>
+</div>
+<div class="stat-card">
+<div class="stat-num">MIT</div>
+<div class="stat-label">Ph.D. Faculty</div>
+</div>
+<div class="stat-card">
+<div class="stat-num">1</div>
+<div class="stat-label">AI OS Blueprint</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- WHY NOW -->
+<section class="section why">
+<div class="container">
+<div class="section-label">Why Now</div>
+<div class="section-title">The window for AI leadership is closing fast.</div>
+<div class="divider"></div>
+<div class="why-cards fade-up">
+<div class="why-card">
+<div class="why-icon">⚡</div>
+<h3>From Experimentation to OS</h3>
+<p>Most organizations are stuck in the "AI pilot" phase. The leaders are building enterprise operating systems. The gap between these two positions is widening exponentially every quarter.</p>
+</div>
+<div class="why-card">
+<div class="why-icon">🛡️</div>
+<h3>Governance is Non-Negotiable</h3>
+<p>EU AI Act, NIST AI RMF, and emerging LatAm regulations demand enterprise-grade AI governance. Boards that cannot demonstrate traceability and accountability face material regulatory risk.</p>
+</div>
+<div class="why-card">
+<div class="why-icon">🏗️</div>
+<h3>Architecture Defines Destiny</h3>
+<p>The organizations that win will be those that build the right AI architecture — not the ones with the most models. Strategic AI infrastructure is the new competitive moat.</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- MODULES -->
+<section class="section modules" id="modules">
+<div class="container">
+<div class="section-label">Curriculum</div>
+<div class="section-title">Five days. Twenty hours.<br>Build your enterprise AI operating system.</div>
+<div class="divider"></div>
+<div class="mod-grid fade-up">
+
+<div class="mod-card">
+<div><div class="mod-num">01</div><div class="mod-hours">4 Hours</div><div class="mod-day">Monday</div></div>
+<div class="mod-content">
+<h3>The AI Landscape: From Tools to Operating Systems</h3>
+<p>Understanding the current state of enterprise AI: LLMs, multimodal models, agents, and autonomous systems. Why most AI initiatives fail and what separates experimentation from transformation. Mapping the AI maturity curve for your organization. The shift from AI-as-tool to AI-as-operating-system.</p>
+</div>
+</div>
+
+<div class="mod-card">
+<div><div class="mod-num">02</div><div class="mod-hours">4 Hours</div><div class="mod-day">Tuesday</div></div>
+<div class="mod-content">
+<h3>AI Governance & Regulatory Architecture</h3>
+<p>Building enterprise AI governance frameworks aligned with EU AI Act, NIST AI RMF, and emerging LatAm regulations. Risk classification, model validation, bias detection, and explainability requirements. Board-level AI oversight structures. Creating your AI governance charter and accountability matrix.</p>
+</div>
+</div>
+
+<div class="mod-card">
+<div><div class="mod-num">03</div><div class="mod-hours">4 Hours</div><div class="mod-day">Wednesday</div></div>
+<div class="mod-content">
+<h3>Enterprise AI Architecture & Infrastructure</h3>
+<p>Designing the technical architecture for enterprise AI: data pipelines, model orchestration, MLOps, and AI infrastructure. Build vs. buy decisions. Vendor evaluation frameworks. Security, privacy, and data sovereignty considerations. Creating your AI technology stack blueprint.</p>
+</div>
+</div>
+
+<div class="mod-card">
+<div><div class="mod-num">04</div><div class="mod-hours">4 Hours</div><div class="mod-day">Thursday</div></div>
+<div class="mod-content">
+<h3>AI-Driven Strategy & Organizational Transformation</h3>
+<p>Integrating AI into corporate strategy, not as an add-on but as the operating system. Workforce transformation: reskilling, new roles, and human-AI team design. Change management for AI adoption. Measuring AI ROI and building the business case for the board. Industry-specific case studies from financial services, manufacturing, and technology.</p>
+</div>
+</div>
+
+<div class="mod-card">
+<div><div class="mod-num">05</div><div class="mod-hours">4 Hours</div><div class="mod-day">Friday</div></div>
+<div class="mod-content">
+<h3>Capstone: Your AI Operating System Blueprint</h3>
+<p>Integrate all four days into a comprehensive, board-ready AI Operating System blueprint for your organization. Includes: governance charter, technology architecture, implementation roadmap, risk framework, and ROI model. Peer review, faculty feedback, and executive presentation. Leave with a complete, actionable strategy.</p>
+</div>
+</div>
+
+</div>
+</div>
+</section>
+
+<!-- WHO SHOULD ATTEND -->
+<section class="section who" id="who">
+<div class="container">
+<div class="section-label">Who Should Attend</div>
+<div class="section-title">Designed for leaders who will architect the AI era.</div>
+<div class="divider"></div>
+<div class="who-grid fade-up">
+<div class="who-card">
+<div class="who-icon">👔</div>
+<h4>CEOs & COOs</h4>
+<p>Chief executives leading enterprise-wide AI transformation and strategic reinvention</p>
+</div>
+<div class="who-card">
+<div class="who-icon">📊</div>
+<h4>CFOs & CROs</h4>
+<p>Financial and risk leaders building AI governance and measuring AI ROI</p>
+</div>
+<div class="who-card">
+<div class="who-icon">💻</div>
+<h4>CIOs & CTOs</h4>
+<p>Technology leaders designing enterprise AI architecture and infrastructure</p>
+</div>
+<div class="who-card">
+<div class="who-icon">⚖️</div>
+<h4>General Counsel</h4>
+<p>Legal officers navigating AI regulation, liability, and compliance frameworks</p>
+</div>
+<div class="who-card">
+<div class="who-icon">🏦</div>
+<h4>MDs Investment Banking</h4>
+<p>Senior bankers integrating AI into deal origination, execution, and advisory</p>
+</div>
+<div class="who-card">
+<div class="who-icon">🎯</div>
+<h4>Transformation Leaders</h4>
+<p>CDOs, CAIOs, and digital transformation directors driving AI adoption at scale</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- FACULTY -->
+<section class="section faculty" id="faculty">
+<div class="container">
+<div class="section-label">Faculty</div>
+<div class="section-title">Practitioners, not professors.</div>
+<div class="divider"></div>
+<div class="faculty-card fade-up">
+<div class="faculty-img">AR</div>
+<div class="faculty-info">
+<h3>Alejandro Reynoso</h3>
+<div class="faculty-role">Ph.D. MIT · Lecturer, Cambridge Judge Business School</div>
+<p>Alejandro Reynoso is one of the world's foremost authorities on AI in financial services and enterprise transformation. With a <strong>Ph.D. from MIT</strong> and over <strong>11 years teaching and conducting research at Cambridge Judge Business School</strong>, he bridges the gap between cutting-edge AI research and real-world enterprise deployment.</p>
+<p>As <strong>Co-Founder of DEFI Capital</strong>, a next-generation investment bank and advisory firm focused on AI and blockchain, Reynoso has been at the forefront of building AI-native financial institutions. His research spans algorithmic trading, AI governance, decentralized finance, and the intersection of technology and financial markets.</p>
+<p>A recognized thought leader, Reynoso has been featured by Cambridge Judge, the National Bureau of Economic Research (NBER), and international forums on AI governance. His perspective is uniquely practical: every framework he teaches has been deployed in live enterprise environments, not simulated classrooms.</p>
+<div class="faculty-tags">
+<span class="faculty-tag">Artificial Intelligence</span>
+<span class="faculty-tag">Enterprise AI</span>
+<span class="faculty-tag">AI Governance</span>
+<span class="faculty-tag">Algorithmic Trading</span>
+<span class="faculty-tag">Blockchain</span>
+<span class="faculty-tag">Cambridge · MIT</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- VENUE -->
+<section class="section venue" id="venue">
+<div class="container">
+<div class="section-label">Venue</div>
+<div class="section-title">An executive setting for executive thinking.</div>
+<div class="divider"></div>
+<div class="venue-card fade-up">
+<div class="venue-info">
+<h3>Club de Industriales</h3>
+<p>One of Mexico City's most prestigious private business clubs, located in the heart of Polanco. The perfect environment for intensive executive learning, networking, and strategic reflection.</p>
+<div class="venue-detail">
+<span>📍</span><span>Polanco, Mexico City (CDMX)</span>
+</div>
+<div class="venue-detail">
+<span>📅</span><span>April 20–24, 2026</span>
+</div>
+<div class="venue-detail">
+<span>⏰</span><span>5 Days · 20 Hours · In-Person</span>
+</div>
+<div class="venue-detail">
+<span>☕</span><span>Executive catering & networking included</span>
+</div>
+</div>
+<div class="venue-map">Club de Industriales · Polanco, CDMX</div>
+</div>
+</div>
+</section>
+
+<!-- PRICING -->
+<section class="section pricing" id="pricing">
+<div class="container">
+<div class="section-label" style="text-align:center">Investment</div>
+<div class="section-title" style="text-align:center">Invest in the operating system that defines your future.</div>
+<div class="divider" style="margin:20px auto 30px"></div>
+<div class="pricing-grid fade-up">
+
+<div class="price-card featured">
+<div class="price-label">Enroll Now</div>
+<div class="price-type">Open Program</div>
+<div class="price-amount"><span class="price-currency">USD </span>$7,500</div>
+<div class="price-note">+ TAX · per participant</div>
+<ul class="price-features">
+<li>20 hours of immersive instruction</li>
+<li>5 days in-person at Club de Industriales</li>
+<li>AI Operating System Blueprint deliverable</li>
+<li>Executive catering & networking</li>
+<li>Certificate of completion</li>
+<li>Post-program faculty access (90 days)</li>
+</ul>
+<a href="#register" class="price-btn primary">Enroll Now</a>
+</div>
+
+<div class="price-card">
+<div class="price-label">Request Info</div>
+<div class="price-type">More Information</div>
+<div class="price-amount" style="font-size:1.6rem;color:var(--white-70)">Custom Pricing</div>
+<div class="price-note">no commitment</div>
+<ul class="price-features">
+<li>Full program details & syllabus</li>
+<li>In-company delivery options</li>
+<li>Organization-specific AI assessment</li>
+<li>Custom scheduling available</li>
+<li>Group discounts for 3+ participants</li>
+<li>Extended faculty advisory engagement</li>
+</ul>
+<a href="mailto:executive@riskmathics.com?subject=More%20Information%20%E2%80%93%20AI%20Operating%20System%20Bootcamp&body=I%20would%20like%20to%20request%20more%20information%20about%20the%20AI%20Operating%20System%20Bootcamp.%0A%0ACompany%3A%20%0AName%3A%20%0ARole%3A%20%0ANumber%20of%20participants%3A%20%0A%0AThank%20you." class="price-btn secondary">Request More Info</a>
+</div>
+
+</div>
+</div>
+</section>
+
+<!-- REGISTER -->
+<section class="section register" id="register">
+<div class="container">
+<div class="register-box fade-up">
+<div class="section-label" style="text-align:center">Registration</div>
+<div class="section-title" style="text-align:center;font-size:1.6rem">Secure Your Seat</div>
+<div class="divider" style="margin:16px auto 32px"></div>
+
+<form id="registrationForm" novalidate>
+<div class="form-row">
+<div class="form-group">
+<label for="name">Full Name *</label>
+<input type="text" id="name" name="name" required placeholder="First name">
+<div class="form-error" id="nameError">Please enter your full name</div>
+</div>
+<div class="form-group">
+<label for="surname_paterno">Surname Paterno *</label>
+<input type="text" id="surname_paterno" name="surname_paterno" required placeholder="Apellido paterno">
+<div class="form-error" id="paternoError">Please enter your paterno surname</div>
+</div>
+</div>
+<div class="form-row">
+<div class="form-group">
+<label for="surname_materno">Last Name Materno *</label>
+<input type="text" id="surname_materno" name="surname_materno" required placeholder="Apellido materno">
+<div class="form-error" id="maternoError">Please enter your materno surname</div>
+</div>
+<div class="form-group">
+<label for="title">Title / Position *</label>
+<input type="text" id="title" name="title" required placeholder="e.g. CEO, CTO, General Counsel">
+<div class="form-error" id="titleError">Please enter your title</div>
+</div>
+</div>
+<div class="form-group">
+<label for="company">Company *</label>
+<input type="text" id="company" name="company" required placeholder="Organization name">
+<div class="form-error" id="companyError">Please enter your company</div>
+</div>
+<div class="form-group">
+<label for="email">Business Email *</label>
+<input type="email" id="email" name="email" required placeholder="name@company.com">
+<div class="form-error" id="emailError">Please enter a valid business email (no Gmail, Hotmail, or Yahoo)</div>
+</div>
+<div class="form-group">
+<label for="sector">Sector *</label>
+<select id="sector" name="sector" required>
+<option value="" disabled selected>Select your sector</option>
+<option value="Banking">Banking</option>
+<option value="Investment Banking">Investment Banking</option>
+<option value="Asset Management">Asset Management</option>
+<option value="Insurance">Insurance</option>
+<option value="Private Equity / VC">Private Equity / Venture Capital</option>
+<option value="Technology / Fintech">Technology / Fintech</option>
+<option value="Consulting">Consulting</option>
+<option value="Manufacturing">Manufacturing</option>
+<option value="Energy">Energy</option>
+<option value="Telecommunications">Telecommunications</option>
+<option value="Retail / Consumer">Retail / Consumer</option>
+<option value="Healthcare / Pharma">Healthcare / Pharma</option>
+<option value="Regulatory / Government">Regulatory / Government</option>
+<option value="Real Estate">Real Estate</option>
+<option value="Other">Other</option>
+</select>
+<div class="form-error" id="sectorError">Please select your sector</div>
+</div>
+<button type="submit" class="form-submit" id="submitBtn">Register Now</button>
+</form>
+
+<div class="form-success" id="formSuccess">
+<h3>✓ Registration Received</h3>
+<p>Thank you for your interest in the AI Operating System Bootcamp. Our executive programs team will contact you within 24 business hours.</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+<p>© 2026 RiskMathics Financial Institute · <a href="mailto:executive@riskmathics.com">executive@riskmathics.com</a></p>
+</footer>
+
+<script>
+const observer=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target)}})},{threshold:.15});
+document.querySelectorAll('.fade-up').forEach(el=>observer.observe(el));
+
+function isBusinessEmail(email){
+const blocked=['gmail.com','hotmail.com','yahoo.com','outlook.com','live.com','aol.com','icloud.com','mail.com','protonmail.com','yahoo.com.mx','hotmail.es'];
+const domain=email.split('@')[1]?.toLowerCase();
+return domain&&!blocked.includes(domain);
+}
+
+const form=document.getElementById('registrationForm');
+const submitBtn=document.getElementById('submitBtn');
+
+form.addEventListener('submit',async function(e){
+e.preventDefault();
+let valid=true;
+document.querySelectorAll('.form-error').forEach(el=>el.style.display='none');
+
+const name=document.getElementById('name').value.trim();
+const surname_paterno=document.getElementById('surname_paterno').value.trim();
+const surname_materno=document.getElementById('surname_materno').value.trim();
+const title=document.getElementById('title').value.trim();
+const company=document.getElementById('company').value.trim();
+const email=document.getElementById('email').value.trim();
+const sector=document.getElementById('sector').value;
+
+if(!name){document.getElementById('nameError').style.display='block';valid=false}
+if(!surname_paterno){document.getElementById('paternoError').style.display='block';valid=false}
+if(!surname_materno){document.getElementById('maternoError').style.display='block';valid=false}
+if(!title){document.getElementById('titleError').style.display='block';valid=false}
+if(!company){document.getElementById('companyError').style.display='block';valid=false}
+if(!email||!isBusinessEmail(email)){document.getElementById('emailError').style.display='block';valid=false}
+if(!sector){document.getElementById('sectorError').style.display='block';valid=false}
+
+if(!valid)return;
+
+submitBtn.disabled=true;
+submitBtn.textContent='Sending...';
+
+const payload={
+name,surname_paterno,surname_materno,title,company,email,sector,
+program:'AI Operating System Bootcamp',
+source:'landing_page',
+timestamp:new Date().toISOString()
+};
+
+try{
+await fetch('https://allanbarush.app.n8n.cloud/webhook/landing-page-lead',{
+method:'POST',headers:{'Content-Type':'application/json'},
+body:JSON.stringify(payload),mode:'no-cors'
+});
+form.style.display='none';
+document.getElementById('formSuccess').style.display='block';
+}catch(err){
+submitBtn.disabled=false;
+submitBtn.textContent='Register Now';
+alert('There was an error. Please try again or email executive@riskmathics.com');
+}
+});
+</script>
+</body>
+</html>
