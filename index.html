@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programas 2026 | RiskMathics & PWMI</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; background: #0a0a0a; color: #fff; min-height: 100vh; }
+        .hero { background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%); padding: 80px 20px 60px; text-align: center; }
+        .hero img { height: 60px; margin-bottom: 30px; }
+        .hero h1 { font-size: 2.8rem; font-weight: 800; margin-bottom: 15px; background: linear-gradient(90deg, #00d4ff, #7b2ff7, #ff6b6b); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .hero p { font-size: 1.2rem; color: #94a3b8; max-width: 700px; margin: 0 auto; }
+        .programs { max-width: 1200px; margin: 0 auto; padding: 60px 20px; display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 30px; }
+        .card { background: linear-gradient(145deg, #1e1e2e, #151525); border: 1px solid #2a2a4a; border-radius: 16px; overflow: hidden; transition: transform 0.3s, box-shadow 0.3s; cursor: pointer; text-decoration: none; color: inherit; display: block; }
+        .card:hover { transform: translateY(-8px); box-shadow: 0 20px 60px rgba(123, 47, 247, 0.15); border-color: #7b2ff7; }
+        .card-badge { display: inline-block; padding: 6px 16px; border-radius: 20px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 15px; }
+        .badge-ai { background: linear-gradient(90deg, #7b2ff7, #00d4ff); }
+        .badge-markets { background: linear-gradient(90deg, #00b894, #00cec9); }
+        .badge-risk { background: linear-gradient(90deg, #e17055, #fdcb6e); color: #1a1a2e; }
+        .card-content { padding: 30px; }
+        .card-content h3 { font-size: 1.4rem; margin-bottom: 12px; font-weight: 700; }
+        .card-content p { color: #94a3b8; font-size: 0.95rem; line-height: 1.6; margin-bottom: 20px; }
+        .card-meta { display: flex; gap: 20px; flex-wrap: wrap; margin-bottom: 20px; }
+        .card-meta span { font-size: 0.85rem; color: #64748b; }
+        .card-meta span strong { color: #cbd5e1; }
+        .card-cta { display: inline-block; padding: 12px 28px; border-radius: 8px; font-weight: 700; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; transition: all 0.3s; }
+        .cta-ai { background: linear-gradient(90deg, #7b2ff7, #00d4ff); }
+        .cta-markets { background: linear-gradient(90deg, #00b894, #00cec9); color: #1a1a2e; }
+        .cta-risk { background: linear-gradient(90deg, #e17055, #fdcb6e); color: #1a1a2e; }
+        .footer { text-align: center; padding: 40px 20px; border-top: 1px solid #1e1e2e; color: #64748b; font-size: 0.85rem; }
+        .footer a { color: #7b2ff7; text-decoration: none; }
+        @media (max-width: 768px) { .hero h1 { font-size: 1.8rem; } .programs { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+    <div class="hero">
+        <h1>Programas Ejecutivos 2026</h1>
+        <p>Formacion de clase mundial en finanzas, tecnologia y gobernanza. Programas disenados por y para profesionales del sector financiero global.</p>
+    </div>
+    <div class="programs">
+        <a href="/ai-governance/" class="card">
+            <div class="card-content">
+                <span class="card-badge badge-ai">AI & Tech</span>
+                <h3>AI Operating System Bootcamp</h3>
+                <p>Domina las herramientas de inteligencia artificial que estan transformando el sector financiero. De ChatGPT a agentes autonomos, automatizacion y AI governance.</p>
+                <div class="card-meta">
+                    <span><strong>40 hrs</strong> intensivas</span>
+                    <span><strong>Online</strong> en vivo</span>
+                    <span><strong>Certificado</strong> incluido</span>
+                </div>
+                <span class="card-cta cta-ai">Ver Programa Completo</span>
+            </div>
+        </a>
+        <a href="/global-equity-markets/" class="card">
+            <div class="card-content">
+                <span class="card-badge badge-markets">Global Markets</span>
+                <h3>Global Equity Markets</h3>
+                <p>Programa integral de mercados accionarios globales: valuacion, analisis fundamental y tecnico, portfolio construction, y estrategias institucionales.</p>
+                <div class="card-meta">
+                    <span><strong>60 hrs</strong> de contenido</span>
+                    <span><strong>Online</strong> en vivo</span>
+                    <span><strong>Certificado</strong> incluido</span>
+                </div>
+                <span class="card-cta cta-markets">Ver Programa Completo</span>
+            </div>
+        </a>
+        <a href="/risk-governance-mastery/" class="card">
+            <div class="card-content">
+                <span class="card-badge badge-risk">Risk & Governance</span>
+                <h3>Risk Governance Mastery</h3>
+                <p>Programa avanzado en gobernanza de riesgos: marcos regulatorios, ICAAP, Basel III/IV, stress testing, y mejores practicas de gestion integral de riesgos.</p>
+                <div class="card-meta">
+                    <span><strong>80 hrs</strong> de formacion</span>
+                    <span><strong>Online</strong> en vivo</span>
+                    <span><strong>Certificado</strong> incluido</span>
+                </div>
+                <span class="card-cta cta-risk">Ver Programa Completo</span>
+            </div>
+        </a>
+    </div>
+    <div class="footer">
+        <p>&copy; 2026 RiskMathics Financial Innovation | <a href="https://www.riskmathics.com">www.riskmathics.com</a></p>
+    </div>
+</body>
+</html>
